@@ -8,6 +8,26 @@ h1 {
   margin-bottom: 20px;
 }
 
+.casilla {
+  width: 80px;
+  height: 80px;
+  background-image: url("./img/hoyo.png");
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.topo {
+  position: absolute;
+  width: 60px;
+  bottom: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: bottom 0.25s ease;
+  pointer-events: none;
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
