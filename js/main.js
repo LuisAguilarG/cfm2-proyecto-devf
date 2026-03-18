@@ -7,6 +7,7 @@ let tiempo = 30;
 let intervaloTopo;
 let intervaloTiempo;
 let casillaActiva = null;
+let bloqueado = false;
 
 scoreDisplay.textContent = "Puntos: 0";
 timeDisplay.textContent = "Tiempo: 30";
@@ -15,56 +16,62 @@ document.body.insertBefore(scoreDisplay, document.querySelector(".grid"));
 document.body.insertBefore(timeDisplay, document.querySelector(".grid"));
 
 function obtenerCasillaRandom() {
-  const index = Math.floor(Math.random() * casillas.length);
-  return casillas[index];
+    const index = Math.floor(Math.random() * casillas.length);
+    return casillas[index];
 }
 
 function mostrarTopo() {
-  if (casillaActiva) {
-    casillaActiva.classList.remove("activa");
-  }
+    if (bloqueado) return;
 
-  const casilla = obtenerCasillaRandom();
-  casilla.classList.add("activa");
-  casillaActiva = casilla;
+    if (casillaActiva) {
+        casillaActiva.classList.remove("activa");
+    }
+
+    const casilla = obtenerCasillaRandom();
+    casilla.classList.add("activa");
+    casillaActiva = casilla;
 }
 
-casillas.forEach(casilla => {
-  casilla.addEventListener("click", () => {
-    if (!casilla.classList.contains("activa")) return;
+casillas.forEach((casilla) => {
+    casilla.addEventListener("click", () => {
+        bloqueado = true;
 
-    const topo = casilla.querySelector(".topo");
+        if (!casilla.classList.contains("activa")) return;
 
-    topo.src = "../img/topo-golpeado.png";
-    score++;
-    scoreDisplay.textContent = "Puntos: " + score;
+        const topo = casilla.querySelector(".topo");
 
-    casilla.classList.remove("activa");
+        topo.src = "../img/topo-golpeado.png";
 
-    setTimeout(() => {
-      topo.src = "../img/topo.png";
-    }, 300);
-  });
+        score++;
+        scoreDisplay.textContent = "Puntos: " + score;
+
+        // Espera antes de esconderlo
+        setTimeout(() => {
+            casilla.classList.remove("activa");
+            topo.src = "../img/topo.png";
+            bloqueado = false;
+        }, 800);
+    });
 });
 
 function iniciarJuego() {
-  intervaloTopo = setInterval(mostrarTopo, 800);
+    intervaloTopo = setInterval(mostrarTopo, 800);
 
-  intervaloTiempo = setInterval(() => {
-    tiempo--;
-    timeDisplay.textContent = "Tiempo: " + tiempo;
+    intervaloTiempo = setInterval(() => {
+        tiempo--;
+        timeDisplay.textContent = "Tiempo: " + tiempo;
 
-    if (tiempo <= 0) {
-      clearInterval(intervaloTopo);
-      clearInterval(intervaloTiempo);
+        if (tiempo <= 0) {
+            clearInterval(intervaloTopo);
+            clearInterval(intervaloTiempo);
 
-      if (casillaActiva) {
-        casillaActiva.classList.remove("activa");
-      }
+            if (casillaActiva) {
+                casillaActiva.classList.remove("activa");
+            }
 
-      alert("Juego terminado. Puntos: " + score);
-    }
-  }, 1000);
+            alert("Juego terminado. Puntos: " + score);
+        }
+    }, 1000);
 }
 
 iniciarJuego();
