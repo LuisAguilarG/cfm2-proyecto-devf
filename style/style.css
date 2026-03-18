@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-    margin: 20px 0;
+    margin: .25em 0 0;
     font-family: "Galindo", sans-serif;
     color: white;
     font-size: 4rem;
@@ -22,6 +22,20 @@ h1 {
         0.16em 0.16em 0 #000,
         0.24em 0.24em 0 #000;
     animation: pulseShadow 2s infinite alternate;
+}
+
+.status {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    font-family: "Galindo", sans-serif;
+    font-size: 2em;
+    color: #fff;
+}
+
+.status p {
+    background-color: #2d2d2d;
+    padding: .125em .5em;
 }
 
 main,
@@ -113,14 +127,15 @@ main,
 @media (min-width: 600px) {
     h1 {
         font-size: 5rem;
-        text-shadow:
-            0.10em 0.10em 0 #000,
-            0.20em 0.20em 0 #000,
-            0.30em 0.30em 0 #000;
+    }
+
+    .status {
+        font-size: 2em;
+        gap: 3em;
     }
 
     .grid {
-        max-width: 500px;
+        max-width: 450px;
         gap: 15px;
     }
 
@@ -137,59 +152,24 @@ main,
         justify-content: space-between;
         padding: 15px 30px;
     }
+}
 
-    @keyframes pulseShadow {
-        0% {
-            text-shadow:
-                0.10em 0.10em 0 #000,
-                0.20em 0.20em 0 #000,
-                0.30em 0.30em 0 #000;
-        }
-
-        100% {
-            text-shadow:
-                0.12em 0.12em 0 #000,
-                0.24em 0.24em 0 #000,
-                0.36em 0.36em 0 #000;
-        }
+@media (min-width: 900px) {
+    .status {
+        font-size: 2em;
+        gap: 4em;
     }
 
-    @media (min-width: 900px) {
-        h1 {
-            font-size: 6rem;
-            text-shadow:
-                0.12em 0.12em 0 #000,
-                0.24em 0.24em 0 #000,
-                0.36em 0.36em 0 #000;
-        }
+    .grid {
+        max-width: 600px;
+        gap: 20px;
+    }
 
-        .grid {
-            max-width: 700px;
-            gap: 20px;
-        }
+    .topo {
+        width: 50%;
+    }
 
-        .topo {
-            width: 50%;
-        }
-
-        .casilla.activa .topo {
-            bottom: 8%;
-        }
-
-        @keyframes pulseShadow {
-            0% {
-                text-shadow:
-                    0.12em 0.12em 0 #000,
-                    0.24em 0.24em 0 #000,
-                    0.36em 0.36em 0 #000;
-            }
-
-            100% {
-                text-shadow:
-                    0.15em 0.15em 0 #000,
-                    0.30em 0.30em 0 #000,
-                    0.45em 0.45em 0 #000;
-            }
-        }
+    .casilla.activa .topo {
+        bottom: 8%;
     }
 }

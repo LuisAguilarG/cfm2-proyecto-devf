@@ -1,7 +1,7 @@
 const main = document.querySelector(".grid-container");
 const casillas = document.querySelectorAll(".casilla");
-const scoreDisplay = document.createElement("p");
-const timeDisplay = document.createElement("p");
+const scoreDisplay = document.querySelector("#score");
+const timeDisplay = document.querySelector("#time");
 
 let score = 0;
 let tiempo = 30;
@@ -9,12 +9,6 @@ let intervaloTopo;
 let intervaloTiempo;
 let casillaActiva = null;
 let bloqueado = false;
-
-scoreDisplay.textContent = "Puntos: 0";
-timeDisplay.textContent = "Tiempo: 30";
-
-main.insertBefore(scoreDisplay, main.querySelector(".grid"));
-main.insertBefore(timeDisplay, main.querySelector(".grid"));
 
 function obtenerCasillaRandom() {
     const index = Math.floor(Math.random() * casillas.length);
@@ -35,9 +29,9 @@ function mostrarTopo() {
 
 casillas.forEach((casilla) => {
     casilla.addEventListener("click", () => {
-        bloqueado = true;
+        if (!casilla.classList.contains("activa") || bloqueado) return;
 
-        if (!casilla.classList.contains("activa")) return;
+        bloqueado = true;
 
         const topo = casilla.querySelector(".topo");
 
@@ -56,6 +50,10 @@ casillas.forEach((casilla) => {
 });
 
 function iniciarJuego() {
+    scoreDisplay.textContent = "Puntos: " + score;
+    timeDisplay.textContent = "Tiempo: " + tiempo;
+    bloqueado = false;
+
     intervaloTopo = setInterval(mostrarTopo, 800);
 
     intervaloTiempo = setInterval(() => {
@@ -75,4 +73,4 @@ function iniciarJuego() {
     }, 1000);
 }
 
-iniciarJuego();
+window.addEventListener("DOMContentLoaded", iniciarJuego);
