@@ -1,53 +1,105 @@
 body {
-  font-family: sans-serif;
-  text-align: center;
-  background: #87c96b;
+    font-family: sans-serif;
+    text-align: center;
+    background: #87c96b;
 }
 
 h1 {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .casilla {
-  width: 80px;
-  height: 80px;
-  background-image: url("./img/hoyo.png");
-  background-size: cover;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
+    width: 80px;
+    height: 80px;
+    background-image: url("./img/hoyo.png");
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .topo {
-  position: absolute;
-  width: 60px;
-  bottom: -100%;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: bottom 0.25s ease;
-  pointer-events: none;
+    position: absolute;
+    width: 60px;
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: bottom 0.25s ease;
+    pointer-events: none;
 }
 
 .footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background: #2d2d2d;
-  color: white;
-  margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: #2d2d2d;
+    color: white;
+    margin-top: 30px;
 }
 
 .footer-links {
-  display: flex;
-  gap: 15px;
+    display: flex;
+    gap: 10px;
 }
 
 .footer a {
-  color: white;
-  text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
 
-.footer a:hover {
-  text-decoration: underline;
+@media (min-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, 100px);
+        gap: 15px;
+    }
+
+    .casilla {
+        width: 100px;
+        height: 100px;
+    }
+
+    .topo {
+        width: 70px;
+    }
+
+    .casilla.activa .topo {
+        bottom: 8px;
+    }
+
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px 30px;
+    }
+}
+
+
+@media (min-width: 900px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, 120px);
+        gap: 20px;
+    }
+
+    .casilla {
+        width: 120px;
+        height: 120px;
+    }
+
+    .topo {
+        width: 80px;
+    }
+
+    .casilla.activa .topo {
+        bottom: 10px;
+    }
 }
