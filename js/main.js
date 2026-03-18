@@ -35,7 +35,7 @@ casillas.forEach((casilla) => {
 
         const topo = casilla.querySelector(".topo");
 
-        topo.src = "../img/topo-golpeado.png";
+        topo.src = "./img/topo-golpeado.png";
 
         score++;
         scoreDisplay.textContent = "Puntos: " + score;
@@ -43,7 +43,7 @@ casillas.forEach((casilla) => {
         // Espera antes de esconderlo
         setTimeout(() => {
             casilla.classList.remove("activa");
-            topo.src = "../img/topo.png";
+            topo.src = "./img/topo.png";
             bloqueado = false;
         }, 800);
     });
