@@ -35,14 +35,14 @@ casillas.forEach(casilla => {
 
     const topo = casilla.querySelector(".topo");
 
-    topo.src = "topo-golpeado.png";
+    topo.src = "../img/topo-golpeado.png";
     score++;
     scoreDisplay.textContent = "Puntos: " + score;
 
     casilla.classList.remove("activa");
 
     setTimeout(() => {
-      topo.src = "topo.png";
+      topo.src = "../img/topo.png";
     }, 300);
   });
 });

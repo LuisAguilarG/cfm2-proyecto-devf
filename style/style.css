@@ -1,121 +1,119 @@
 body {
-    font-family: sans-serif;
-    text-align: center;
-    background: #87c96b;
-    margin: 0;
+  font-family: sans-serif;
+  text-align: center;
+  background: #87c96b;
+  margin: 0;
 }
 
 h1 {
-    margin: 20px 0;
-    font-size: 1.5rem;
+  margin: 20px 0;
+  font-size: 1.5rem;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 80px);
-    gap: 10px;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 400px;
+  margin: auto;
 }
 
 .casilla {
-    width: 80px;
-    height: 80px;
-    background-image: url("./img/hoyo.png");
-    background-size: cover;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.hoyo {
+  position: absolute;
+  width: 90%;
+  height: auto;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  object-fit: contain;
 }
 
 .topo {
-    position: absolute;
-    width: 60px;
-    bottom: -100%;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: bottom 0.25s ease;
-    pointer-events: none;
+  position: absolute;
+  width: 60%;
+  bottom: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: bottom 0.25s ease;
+  pointer-events: none;
 }
 
 .casilla.activa .topo {
-    bottom: 5px;
+  bottom: 10%;
 }
 
 .topo.golpeado {
-    transform: translateX(-50%) scale(0.9);
+  transform: translateX(-50%) scale(0.9);
 }
 
 .footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 15px;
-    background: #2d2d2d;
-    color: white;
-    margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  background: #2d2d2d;
+  color: white;
+  margin-top: 30px;
 }
 
 .footer-links {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .footer a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 @media (min-width: 600px) {
-    h1 {
-        font-size: 2rem;
-    }
+  h1 {
+    font-size: 2rem;
+  }
 
-    .grid {
-        grid-template-columns: repeat(3, 100px);
-        gap: 15px;
-    }
+  .grid {
+    max-width: 400px;
+    gap: 15px;
+  }
 
-    .casilla {
-        width: 100px;
-        height: 100px;
-    }
+  .topo {
+    width: 55%;
+  }
 
-    .topo {
-        width: 70px;
-    }
+  .casilla.activa .topo {
+    bottom: 10%;
+  }
 
-    .casilla.activa .topo {
-        bottom: 8px;
-    }
-
-    .footer {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 15px 30px;
-    }
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 30px;
+  }
 }
 
 @media (min-width: 900px) {
-    h1 {
-        font-size: 2.5rem;
-    }
+  h1 {
+    font-size: 2.5rem;
+  }
 
-    .grid {
-        grid-template-columns: repeat(3, 120px);
-        gap: 20px;
-    }
+  .grid {
+    max-width: 500px;
+    gap: 20px;
+  }
 
-    .casilla {
-        width: 120px;
-        height: 120px;
-    }
+  .topo {
+    width: 50%;
+  }
 
-    .topo {
-        width: 80px;
-    }
-
-    .casilla.activa .topo {
-        bottom: 10px;
-    }
+  .casilla.activa .topo {
+    bottom: 8%;
+  }
 }
