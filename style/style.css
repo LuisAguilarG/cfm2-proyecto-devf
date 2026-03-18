@@ -1,119 +1,195 @@
 body {
-  font-family: sans-serif;
-  text-align: center;
-  background: #87c96b;
-  margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #87c96b;
+    background-image: url('../img/pasto.png');
+    background-repeat: repeat;
+    background-position: top left;
+    background-size: auto;
+    font-family: sans-serif;
+    text-align: center;
+    margin: 0;
 }
 
 h1 {
-  margin: 20px 0;
-  font-size: 1.5rem;
+    margin: 20px 0;
+    font-family: "Galindo", sans-serif;
+    color: white;
+    font-size: 4rem;
+    text-shadow:
+        0.08em 0.08em 0 #000,
+        0.16em 0.16em 0 #000,
+        0.24em 0.24em 0 #000;
+    animation: pulseShadow 2s infinite alternate;
+}
+
+main,
+.grid-container {
+    flex: 1;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  max-width: 400px;
-  margin: auto;
+    cursor: url('../img/mazo.png'), pointer;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 400px;
+    margin: auto;
 }
 
 .casilla {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
 }
 
 .hoyo {
-  position: absolute;
-  width: 90%;
-  height: auto;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  object-fit: contain;
+    position: absolute;
+    width: 90%;
+    height: auto;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: contain;
 }
 
 .topo {
-  position: absolute;
-  width: 60%;
-  bottom: -100%;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: bottom 0.25s ease;
-  pointer-events: none;
+    position: absolute;
+    width: 60%;
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: bottom 0.25s ease;
+    pointer-events: none;
 }
 
 .casilla.activa .topo {
-  bottom: 10%;
+    bottom: 10%;
 }
 
 .topo.golpeado {
-  transform: translateX(-50%) scale(0.9);
+    transform: translateX(-50%) scale(0.9);
 }
 
 .footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  padding: 15px;
-  background: #2d2d2d;
-  color: white;
-  margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: #2d2d2d;
+    color: white;
+    margin-top: 30px;
 }
 
 .footer-links {
-  display: flex;
-  gap: 10px;
+    display: flex;
+    gap: 10px;
 }
 
 .footer a {
-  color: white;
-  text-decoration: none;
+    color: white;
+    text-decoration: none;
+}
+
+@keyframes pulseShadow {
+    0% {
+        text-shadow:
+            0.08em 0.08em 0 #000,
+            0.16em 0.16em 0 #000,
+            0.24em 0.24em 0 #000;
+    }
+
+    100% {
+        text-shadow:
+            0.10em 0.10em 0 #000,
+            0.20em 0.20em 0 #000,
+            0.30em 0.30em 0 #000;
+    }
 }
 
 @media (min-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
+    h1 {
+        font-size: 5rem;
+        text-shadow:
+            0.10em 0.10em 0 #000,
+            0.20em 0.20em 0 #000,
+            0.30em 0.30em 0 #000;
+    }
 
-  .grid {
-    max-width: 500px;
-    gap: 15px;
-  }
+    .grid {
+        max-width: 500px;
+        gap: 15px;
+    }
 
-  .topo {
-    width: 55%;
-  }
+    .topo {
+        width: 55%;
+    }
 
-  .casilla.activa .topo {
-    bottom: 10%;
-  }
+    .casilla.activa .topo {
+        bottom: 10%;
+    }
 
-  .footer {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 15px 30px;
-  }
-}
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px 30px;
+    }
 
-@media (min-width: 900px) {
-  h1 {
-    font-size: 2.5rem;
-  }
+    @keyframes pulseShadow {
+        0% {
+            text-shadow:
+                0.10em 0.10em 0 #000,
+                0.20em 0.20em 0 #000,
+                0.30em 0.30em 0 #000;
+        }
 
-  .grid {
-    max-width: 700px;
-    gap: 20px;
-  }
+        100% {
+            text-shadow:
+                0.12em 0.12em 0 #000,
+                0.24em 0.24em 0 #000,
+                0.36em 0.36em 0 #000;
+        }
+    }
 
-  .topo {
-    width: 50%;
-  }
+    @media (min-width: 900px) {
+        h1 {
+            font-size: 6rem;
+            text-shadow:
+                0.12em 0.12em 0 #000,
+                0.24em 0.24em 0 #000,
+                0.36em 0.36em 0 #000;
+        }
 
-  .casilla.activa .topo {
-    bottom: 8%;
-  }
+        .grid {
+            max-width: 700px;
+            gap: 20px;
+        }
+
+        .topo {
+            width: 50%;
+        }
+
+        .casilla.activa .topo {
+            bottom: 8%;
+        }
+
+        @keyframes pulseShadow {
+            0% {
+                text-shadow:
+                    0.12em 0.12em 0 #000,
+                    0.24em 0.24em 0 #000,
+                    0.36em 0.36em 0 #000;
+            }
+
+            100% {
+                text-shadow:
+                    0.15em 0.15em 0 #000,
+                    0.30em 0.30em 0 #000,
+                    0.45em 0.45em 0 #000;
+            }
+        }
+    }
 }

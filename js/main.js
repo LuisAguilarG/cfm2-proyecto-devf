@@ -1,3 +1,4 @@
+const main = document.querySelector(".grid-container");
 const casillas = document.querySelectorAll(".casilla");
 const scoreDisplay = document.createElement("p");
 const timeDisplay = document.createElement("p");
@@ -12,8 +13,8 @@ let bloqueado = false;
 scoreDisplay.textContent = "Puntos: 0";
 timeDisplay.textContent = "Tiempo: 30";
 
-document.body.insertBefore(scoreDisplay, document.querySelector(".grid"));
-document.body.insertBefore(timeDisplay, document.querySelector(".grid"));
+main.insertBefore(scoreDisplay, main.querySelector(".grid"));
+main.insertBefore(timeDisplay, main.querySelector(".grid"));
 
 function obtenerCasillaRandom() {
     const index = Math.floor(Math.random() * casillas.length);
