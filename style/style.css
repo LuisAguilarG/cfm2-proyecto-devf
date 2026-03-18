@@ -2,10 +2,19 @@ body {
     font-family: sans-serif;
     text-align: center;
     background: #87c96b;
+    margin: 0;
 }
 
 h1 {
-    margin-bottom: 20px;
+    margin: 20px 0;
+    font-size: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 10px;
+    justify-content: center;
 }
 
 .casilla {
@@ -26,6 +35,14 @@ h1 {
     transform: translateX(-50%);
     transition: bottom 0.25s ease;
     pointer-events: none;
+}
+
+.casilla.activa .topo {
+    bottom: 5px;
+}
+
+.topo.golpeado {
+    transform: translateX(-50%) scale(0.9);
 }
 
 .footer {
@@ -78,7 +95,6 @@ h1 {
         padding: 15px 30px;
     }
 }
-
 
 @media (min-width: 900px) {
     h1 {
