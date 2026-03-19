@@ -32,7 +32,7 @@ h1 {
 }
 
 .status p {
-    background-color: #2d2d2d;
+    background-color: #1b1b1b;
     padding: .125em .5em;
 }
 
@@ -102,16 +102,20 @@ img {
     align-items: center;
     gap: 1em;
     padding: 10px;
-    background: #2d2d2d;
+    background: #1b1b1b;
     color: white;
     margin-top: 30px;
-    overflow-x: scroll;
+}
+
+.footer p {
+    margin: 0;
 }
 
 .footer-links {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    /* flex-wrap: wrap; */
     gap: 10px;
 }
 
@@ -142,7 +146,7 @@ img {
     background-color: #87c96b;
     padding: 2.5em;
     border-radius: 15px;
-    border: 5px solid #2d2d2d;
+    border: 5px solid #1b1b1b;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
     text-align: center;
     color: white;
@@ -156,7 +160,7 @@ img {
 
 .modal-contenido p {
     font-size: 2rem;
-    background-color: #2d2d2d;
+    background-color: #1b1b1b;
     padding: 0.5em;
     border-radius: 8px;
     margin: 1em 0;
@@ -164,8 +168,8 @@ img {
 
 #btn-reiniciar {
     background-color: #f0d048;
-    color: #2d2d2d;
-    border: 3px solid #2d2d2d;
+    color: #1b1b1b;
+    border: 3px solid #1b1b1b;
     border-radius: 8px;
     padding: 0.5em 1.5em;
     font-size: 1.5rem;
@@ -220,6 +224,10 @@ img {
         flex-direction: row;
         justify-content: space-between;
         padding: 15px 30px;
+    }
+
+    .footer-links {
+        flex-wrap: nowrap;
     }
 }
 
