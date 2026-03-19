@@ -15,7 +15,7 @@ body {
 h1 {
     margin: .25em 0 0;
     color: white;
-    font-size: 4rem;
+    font-size: 3.5rem;
     text-shadow:
         0.08em 0.08em 0 #000,
         0.16em 0.16em 0 #000,
@@ -39,6 +39,11 @@ h1 {
 main,
 .grid-container {
     flex: 1;
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .grid {
@@ -85,20 +90,28 @@ main,
     transform: translateX(-50%) scale(0.9);
 }
 
+img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+}
+
 .footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 1em;
     padding: 10px;
     background: #2d2d2d;
     color: white;
     margin-top: 30px;
+    overflow-x: scroll;
 }
 
 .footer-links {
     display: flex;
     align-items: center;
+    /* flex-wrap: wrap; */
     gap: 10px;
 }
 
