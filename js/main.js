@@ -15,6 +15,7 @@ let intervaloTiempo;
 let casillaActiva = null;
 let bloqueado = false;
 let musicaIniciada = false;
+let juegoIniciado = false;
 musicaFondo.loop = true; 
 musicaFondo.volume = 0.05;
 
@@ -102,6 +103,9 @@ document.body.addEventListener("click", () => {
         });
         musicaIniciada = true;
     }
-});
 
-window.addEventListener("DOMContentLoaded", iniciarJuego);
+    if (!juegoIniciado) {
+        iniciarJuego();
+        juegoIniciado = true;
+    }
+});
