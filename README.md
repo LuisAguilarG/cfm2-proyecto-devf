@@ -31,7 +31,13 @@ JavaScript
 
 ¡Empieza a jugar! 🎉
 
+### Créditos
 
-📄 Licencia
+1. Arte visual (topos y hoyos): [Firnox](https://www.youtube.com/watch?v=oqnr7THMbcU)
+2. Música de fondo: [ViacheslavStarostin - Game Gaming Video Game Music](https://pixabay.com/music/video-games-game-gaming-video-game-music-471936/)
+3. Efecto de golpe: [PWLPL - Squeaky toy](https://pixabay.com/sound-effects/film-special-effects-squeaky-toy-377263/)
+
+
+### 📄 Licencia
 
 Este proyecto es de uso libre para fines educativos.
