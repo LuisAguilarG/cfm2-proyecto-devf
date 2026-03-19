@@ -5,6 +5,8 @@ const timeDisplay = document.querySelector("#time");
 const modalResultados = document.querySelector("#modal-resultados");
 const puntuacionFinal = document.querySelector("#puntuacion-final");
 const btnReiniciar = document.querySelector("#btn-reiniciar");
+const sonidoGolpe = new Audio("./fx/golpe.mp3");
+const musicaFondo = new Audio("./fx/musica-fondo.mp3");
 
 let score = 0;
 let tiempo = 30;
@@ -12,6 +14,9 @@ let intervaloTopo;
 let intervaloTiempo;
 let casillaActiva = null;
 let bloqueado = false;
+let musicaIniciada = false;
+musicaFondo.loop = true; 
+musicaFondo.volume = 0.05;
 
 function obtenerCasillaRandom() {
     const index = Math.floor(Math.random() * casillas.length);
@@ -35,6 +40,10 @@ casillas.forEach((casilla) => {
         if (!casilla.classList.contains("activa") || bloqueado) return;
 
         bloqueado = true;
+
+        const audioClon = sonidoGolpe.cloneNode();
+        audioClon.volume = 0.10;
+        audioClon.play();
 
         const topo = casilla.querySelector(".topo");
 
@@ -84,6 +93,15 @@ btnReiniciar.addEventListener("click", () => {
     tiempo = 30;
     
     iniciarJuego();
+});
+
+document.body.addEventListener("click", () => {
+    if (!musicaIniciada) {
+        musicaFondo.play().catch(error => {
+            console.log("La reproducción de audio fue bloqueada por el navegador:", error);
+        });
+        musicaIniciada = true;
+    }
 });
 
 window.addEventListener("DOMContentLoaded", iniciarJuego);
