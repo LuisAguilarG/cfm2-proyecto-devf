@@ -2,6 +2,9 @@ const main = document.querySelector(".grid-container");
 const casillas = document.querySelectorAll(".casilla");
 const scoreDisplay = document.querySelector("#score");
 const timeDisplay = document.querySelector("#time");
+const modalResultados = document.querySelector("#modal-resultados");
+const puntuacionFinal = document.querySelector("#puntuacion-final");
+const btnReiniciar = document.querySelector("#btn-reiniciar");
 
 let score = 0;
 let tiempo = 30;
@@ -68,9 +71,19 @@ function iniciarJuego() {
                 casillaActiva.classList.remove("activa");
             }
 
-            alert("Juego terminado. Puntos: " + score);
+            puntuacionFinal.textContent = "Puntos: " + score;
+            modalResultados.classList.remove("oculto");
         }
     }, 1000);
 }
+
+btnReiniciar.addEventListener("click", () => {
+    modalResultados.classList.add("oculto");
+    
+    score = 0;
+    tiempo = 30;
+    
+    iniciarJuego();
+});
 
 window.addEventListener("DOMContentLoaded", iniciarJuego);
